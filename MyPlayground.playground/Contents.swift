@@ -42,3 +42,86 @@ let emptyDictionary = [String: Float]()
 //let emptuArrays3 = [String]()
 //let emptuArrays4: [String] = [String]()
 //let emptuArrays5: Array<String> = Array<String>()
+
+shoppingList = []
+occupations = [:]
+
+let individualScores = [75, 43, 103, 87, 12]
+var teamScore = 0
+for score in individualScores {
+    if score > 50 {
+        teamScore += 3
+    } else {
+        teamScore += 1
+    }
+}
+print(teamScore)
+
+var optionalString: String? = "Hello"
+print(optionalString == nil)
+
+var optionalName: String? = "John Appleseed"
+var greeting = "Hello!"
+if let name = optionalName {
+    greeting = "Hello, \(name)"
+}
+
+let nickname: String? = nil
+let fullName: String = "John Appleseed"
+let informalGreeting = "Hi \(nickname ?? fullName)"
+
+let vegetable = "papurica"
+switch vegetable {
+case "celery":
+    print("Add some raisins and make ants on a log.")
+case "cucuber", "watdecress":
+    print("that would make a good tea sandwich.")
+case let x where x.hasSuffix("pepper"):
+    print("Is it a spicy \(x)?")
+case let x where x.hasPrefix("red"):
+    print("It is an apple.")
+default:
+    print("Everything tastes good in soup.")
+}
+
+let interestingNumbers: [String: [Int]] = [
+    "Prime": [2, 3, 5, 7, 11, 13],
+    "Fibonacci": [1, 1, 2, 3, 5, 8],
+    "Square": [1, 4, 9, 16, 25]
+]
+var largest = 0
+var largestKind = ""
+for (kind, numbers) in interestingNumbers {
+    for number in numbers {
+        if number > largest {
+            largest = number
+            largestKind = kind
+        }
+    }
+}
+print(largest)
+print(largestKind)
+
+//for (kind, numbers) in interestingNumbers {
+//    print(kind)
+//    for number in numbers {
+//        print(kind)
+//        print(number)
+//        if number > largest {
+//        }
+//    }
+//}
+//
+//let kindPrime = "Prime"
+//for number in interestingNumbers[kindPrime]! {
+//    print(kindPrime)
+////    print(number)
+//}
+//for number in interestingNumbers["Fibonacci"]! {
+//    print("Fibonacci")
+////    print(number)
+//}
+//for number in interestingNumbers["Square"]! {
+//    print("Square")
+////    print(number)
+//}
