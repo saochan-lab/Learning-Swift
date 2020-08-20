@@ -58,4 +58,20 @@ func lessThanTen(number: Int) -> Bool {
     return number < 10
 }
 var numbers = [20, 19, 17, 12]
+
 hasAnyMatches(list: numbers, condition: lessThanTen)
+
+hasAnyMatches(list: numbers) { (number) -> Bool in
+    return  number < 10
+}
+
+numbers.map({ (number: Int) -> Int in
+    let result = 3 * number
+    return result
+})
+
+let f = { (x: Int) -> String in
+    return "\(x)"
+}
+
+let y = f(10)
