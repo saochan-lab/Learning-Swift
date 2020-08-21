@@ -75,3 +75,15 @@ let f = { (x: Int) -> String in
 }
 
 let y = f(10)
+
+let mappedNumbers = numbers.map({number in 3 * number })
+print(mappedNumbers)
+
+let sortedNumbers = numbers.sorted{ $0 > $1 }
+let sortedNumbers2 = numbers.sorted { (n, m) -> Bool in
+    print("n: \(n), m: \(m)")
+    return n > m
+}
+print(sortedNumbers)
+print(sortedNumbers2)
+
