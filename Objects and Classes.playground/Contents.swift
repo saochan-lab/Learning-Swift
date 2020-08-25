@@ -68,3 +68,26 @@ class Square: NamedShape {
 let test = Square(sideLength: 5.2, name: "my test length")
 test.area()
 test.simpleDiclaration()
+
+
+class Circle: NamedShape {
+    var radias: Double
+    
+    init(radias: Double, name: String) {
+        self.radias = radias
+        super.init(name: name)
+        numberOfSides = 1
+    }
+    
+    func area() -> Double {
+        return radias * radias * 3.14
+    }
+    
+    override func simpleDiclaration() -> String {
+        return "A shape with side of length \(radias)"
+    }
+}
+
+let test2 = Circle(radias: 2.4, name: "my test radias")
+test2.area()
+test2.simpleDiclaration()
