@@ -48,7 +48,7 @@ namedShape.name
 
 
 class Square: NamedShape {
-    var sideLength: Double
+    var sideLength: Double = 10
     
     init(sideLength: Double, name: String) {
         self.sideLength = sideLength
@@ -68,6 +68,7 @@ class Square: NamedShape {
 let test = Square(sideLength: 5.2, name: "my test length")
 test.area()
 test.simpleDiclaration()
+test.sideLength
 
 
 class Circle: NamedShape {
@@ -114,8 +115,35 @@ class EquilateralTriangle: NamedShape {
         return "A equilateral triangle with sides of length \(sideLength)"
     }
 }
-var triangle = EquilateralTriangle(sideLength: 3.1, name: "a triangle")
+var triangle: EquilateralTriangle = EquilateralTriangle(sideLength: 3.1, name: "a triangle")
 
 print(triangle.perimeter)
 triangle.perimeter = 9.9
 print(triangle.perimeter)
+
+
+
+
+class TriangleAndSquare {
+    var triangle: EquilateralTriangle {
+        willSet {
+            square.sideLength = newValue.sideLength
+        }
+    }
+    var square: Square {
+        willSet {
+            triangle.sideLength = newValue.sideLength
+        }
+    }
+    init(size: Double, name: String) {
+        square = Square(sideLength: size, name: name)
+        triangle = EquilateralTriangle(sideLength: size, name: name)
+    }
+}
+var triangleAndSquare = TriangleAndSquare(size: 10, name: "Another test shape")
+print(triangleAndSquare.square.sideLength)
+print(triangleAndSquare.triangle.sideLength)
+triangleAndSquare.square = Square(sideLength: 50, name: "large square")
+print(triangleAndSquare.triangle.sideLength)
+
+//triangleAndSquare.triangle = EquilateralTriangle(sideLength: 15, name: "hoge")
