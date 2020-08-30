@@ -147,3 +147,7 @@ triangleAndSquare.square = Square(sideLength: 50, name: "large square")
 print(triangleAndSquare.triangle.sideLength)
 
 //triangleAndSquare.triangle = EquilateralTriangle(sideLength: 15, name: "hoge")
+
+let optionalSquare: Square? = Square(sideLength: 2.5, name: "optional square")
+let sizelength = optionalSquare?.sideLength
+
